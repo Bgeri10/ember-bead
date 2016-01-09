@@ -1,53 +1,189 @@
-# Matchhistory
+# Fifa 16 Ultimate Team meccsek
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## Követelményanalízis
 
-## Prerequisites
+### Funkcionális elvárások
+**A programnak tartalmaznia kell:**
 
-You will need the following things properly installed on your computer.
+•	legalább két modellt, egy-sok kapcsolatban
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+•	legalább 1 űrlapot
 
-## Installation
+•	legalább 1 listázó oldalt
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+•	legyen lehetőség új felvételére
 
-## Running / Development
+•	legyen lehetőség meglévő szerkesztésére
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+•	legyen lehetőség meglévő törlésére
 
-### Code Generators
+•	legyenek benne csak hitelesítés után elérhető funkciók
 
-Make use of the many generators for code, try `ember help generate` for more details
+### Nem funkcionális követelmények
+•	perzisztálás fájlba történjen
 
-### Running Tests
+•	közzététel Herokun
 
-* `ember test`
-* `ember test --server`
+### Szerepkörök
+•	Vendég: a főoldal tartalmához fér hozzá, rögzíteni nem tud.
 
-### Building
+•	Felhasználó: Egy vendég regisztrálás után felhasználóvá válik, így bejelentkezés után listáztatni tudja a névjegyeit, majd ezeket módosítani, törölni, esetleg újat létrehozni.
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+### Használatieset-modell
+![Használatieset-modell](docs/images/hasznalatesetidiagramm.png)
 
-### Deploying
+### Új névjegy felvétele
+![Új névjegy felvétele](docs/images/nevjegyhozzaadasa.png)
 
-Specify what it takes to deploy your app.
+## Tervezés
 
-## Further Reading / Useful Links
+### Architektúra terv
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Oldaltérkép
 
+  Publikus:
+  
+  •	Kezdőlap
+  
+  •	Játékos
+  
+  •	Mérkőzések
+  
+    +	új mérkőzés
+    
+    +	mérkőzés módosítása
+    
+    +	mérkőzés törlése
+
+Végpontok
+
+•	GET /: főoldal
+
+•	GET /profile: Játékos profilja
+
+• GET /history: mérkőzések története részletes adatokkal
+
+•	GET /new-match: új mérkőzés létrehozásának oldala
+
+•	GET /edit-match{id}: mérkőzés módosítása
+
+### Felhasználói felület:
+![Design](docs/images/design.png)
+
+### Osztálymodell
+  Adatmodell
+    ![Adatmodell](docs/images/adatmodell.png)
+  Állapotdiagram
+    ![Állapotdiagram](docs/images/allapotdiagramm.png)
+
+## Implementáció
+
+### Fejlesztői környezet:
+Az alkalmazást a Cloud 9 online fejlesztői környezetében, NodeJS-ben készült.
+
+### Könyvtárstruktúrában lévő mappák
+•	docs/images: A dokumentációhoz szükséges képeket tartalmazza
+
+•	models: A user és a névjegy egyedek modelljeit tartalmazza
+
+•	node_modules: A programhoz szükséges telepített elemeket tartalmazza
+
+•	publis: Minden oldalhoz használható kódokat tartalmaz
+
+•	test: Teszteseketek tartalmazza
+
+•	views/login: Bejelentkezéshez és regisztrációhoz szükséges fájlokat tartalmazza
+
+•	views/partials: A felület alap (állandó) építőelemeit tartalmazza
+
+•	views: Egyéb funkciókhoz szükséges hbs fájlokat tartalmaz
+
+## Tesztelés
+
+A tesztesetek a "test" mappában lévő "create.test.js" fájlban találhatóak.
+Ez demonstrálja, hogy egy felhasználó a regisztráció után:
+
+•	visszanyerhető-e minden adat és ezek megegyeznek-e a regisztrációnál megadottakkal.
+
+•	az adatbázisban bármikor megtalálhatóak és visszanyerhetőek-e a letárolt adatok
+
+•	rossz adatoknál hibát dob-e az oldal
+
+•	jó jelszó megadása esetén enged-e belépni az oldal
+
+•	rossz jelszó megadása esetén hibát jelez-e az oldal
+
+## Felhasználói dokumentáció
+### Menü
+•	"Névjegy kezelő" : Ide kattintva a főoldalra navigálunk át.
+
+•	"Listázás" : Csak bejelentkezett felhasználók számára elérhető. Ide kattintva láthatjuk a névjegyek listáját.
+
+•	"Hozzáadás" : Csak bejelentkezett felhasználók számára elérhető. Itt adhatunk a listához új névjegyet.
+
+•	"Regisztráció" : Akik még nem felhasználók, itt regisztrálhatnak.
+
+•	"Bejelentkezés" : Akik már regisztráltak, itt bejelentkezhetnek.
+
+•	"Kilépés" : A már bejelentkezett felhasználók erre kattintva kijelentkezhetnek.
+
+
+### Regisztráció
+A regisztrációhoz szükség van a felhasználó alábbi adataira:
+
+•	Vezetéknév (kötelező)
+
+•	Keresztnév (kötelező)
+
+•	Neptun-kód (kötelező)
+
+•	Jelszó (kötelező)
+
+•	Avatar URL (nem kötelező)
+
+Hiányos adatok megadása esetén hibát jelez az oldal!
+A helyes kitöltést követően a "Submit" gombra kattintva elvégezhető a regisztráció.
+A "Cancel" gombot használva törölhető az összes eddigi kitöltött mező.
+
+### Bejelentkezés
+Itt lehet bejelentkezni a már regisztrált felhasználóknak az alábbi adatokkal:
+
+•	Neptun-kód
+
+•	Jelszó
+
+Hiányos vagy hibás adaok esetén hibát jelez az oldal!
+Helyes adatok megadása után a "Submit" gombra kattintva bejelentkezhetünk.
+A "Cancel" gombot használva törölhető az összes eddigi kitöltött mező.
+
+### Listázás
+Bejelentkezés után itt jelennek meg a névjegyek az alábbi adataikkal:
+
+•	Felvétel ideje
+
+•	Név
+
+• Foglalkozás
+
+•	Telefonszám
+
+•	Műveletek
+
+Az oldal két táblázatból áll.
+A fontosabb névjegyeket a zöld pipára kattintva ki lehet jelölni. Ekkor a névjegy az alsó táblázatban fog megjelenni.
+Az új, illetve módosított névjegyek a felső táblázatba kerülnek.
+A kék gombbal módosíthatunk egy névjegyet.
+A piros gombbal törölhetünk egy névjegyet.
+
+### Hozzáadás
+Bejelentkezés után itt adhatunk hozzá új névjegyet az alábbi adatok megadásával:
+
+•	Név
+
+• Foglalkozás
+
+•	Telefonszám
+
+Hiányos adatok megadása esetén hibát jelez az oldal!
+Az adatok megadása után a "Hozzáadás" gombra kattintva felvehetjünk az új névjegyünket.
+A "Mégse" gombra kattintva törölhető az összes eddigi kitöltött mező.
