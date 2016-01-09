@@ -2879,6 +2879,8 @@ define('matchhistory/templates/index', ['exports'], function (exports) {
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("p");
+        var el2 = dom.createTextNode("Fifa 16 Ultimate Team-es karakterek meccseit tartalmazó oldal!");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
@@ -3823,7 +3825,7 @@ catch(err) {
 if (runningTests) {
   require("matchhistory/tests/test-helper");
 } else {
-  require("matchhistory/app")["default"].create({"name":"matchhistory","version":"0.0.0+"});
+  require("matchhistory/app")["default"].create({"name":"matchhistory","version":"0.0.0+8430b019"});
 }
 
 /* jshint ignore:end */
