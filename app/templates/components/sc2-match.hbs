@@ -1,0 +1,42 @@
+    <div class="col-md-12">
+        <strong>{{current.type}}</strong>
+        <br>
+        <em>{{current.map}}</em>
+        <br>
+        {{#if current.team1win}}
+            <h2 class="text-success">Hazai győzelem</h2>
+        {{else}}
+            <h2 class="text-danger">Vendég győzelem</h2>
+        {{/if}}
+    </div>
+    <div class="col-md-6 auto">
+        <div class="container-fluid team1">
+            <div class="row">
+            {{#each current.team1 as |player|}}
+                <div class="left">
+                    <h2>{{player.name}}</h2>
+                    <div alt="{{player.team}}" class="{{player.team}} small ach1"></div>
+                    <img src="assets/images/{{player.img}}.png" 
+                         alt="profile" class="pull-left" width="100">
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 auto right">
+        <div class="container-fluid team2">
+            <div class="row">
+            {{#each current.team2 as |player|}}
+                <div class="left">
+                    <h2>{{player.name}}</h2>
+                    <div alt="{{player.team}}" class="{{player.team}} small ach1"></div>
+                    <img src="assets/images/{{player.img}}.png" 
+                         alt="profile" class="pull-left" width="100">
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+    
+    <a href="/edit-match?id={{current.id}}"><div class="edit"><span class="glyphicon glyphicon-pencil"></span></div></a>
+    <div class="delete" {{action "onClick" current.id}}>×</div>

@@ -1,0 +1,199 @@
+body {
+    background: url('/assets/images/stadion.jpg') no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.auto{
+    width: auto;
+}
+
+.right{
+    float:right;
+}
+
+.left{
+    float:left;
+    padding: 0px 7px 7px 7px;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.nav-pills {
+    border-radius: 4px;
+    background-color: rgba(89,89,89,1);
+    float: left;
+    margin: 20px 40px;
+}
+
+.well {
+    margin-top: 30px;
+    background-color: rgba(89,89,89,0.8);
+}
+
+.avatar {
+    padding: 10px;
+    margin: 20px;
+}
+
+h1,
+h2 {
+    display: inline-block;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+.league {
+    display: inline-block;
+}
+
+.match {
+    overflow: auto;
+    width: 90%;
+    margin: 20px auto;
+    border-width: 5px;
+    background-color: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+.match div.delete {
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+    color: #FF3333;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.match:hover div.delete {
+    display: block;
+}
+
+.match div.delete:hover {
+    color: #FF8888;
+}
+
+.match div.edit {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.match:hover div.edit {
+    display: block;
+}
+
+.match div.edit:hover {
+    color: #aaaaaa;
+}
+
+.match strong,
+.match em {
+    display: inline-block;
+    font-size: 1.2em;
+    padding-top: 6px;
+}
+
+.match h2 {
+    font-size: 1.35em;
+    padding: 0 10px;
+    margin-top: 12px;
+}
+
+.match .league {
+    float: left;
+    margin: 10px 0 0 5px;
+}
+
+.bayern {
+    background-image: url('/assets/images/bayern.png');
+    background-size: 40px;
+    
+}
+.barca {
+    background-image: url('/assets/images/barca.png');
+    background-size: 40px;
+}
+.arsenal {
+    background-image: url('/assets/images/arsenal.png');
+    background-size: 40px;
+}
+.napoli{
+    background-image: url('/assets/images/napoli.png');
+    background-size: 40px;
+}
+
+.medium {
+    width: 100px;
+    height: 100px;
+}
+
+.small {
+    margin: auto;
+    width: 40px;
+    height: 40px;
+}
+
+.team1,
+.team2 {
+    border: solid black 1px;
+}
+
+.panel-success{
+    border-color: rgba(0,139,0,0.6);
+    border-width: 7px;
+}
+
+.text-success{
+    color: rgba(0,139,0,1);
+}
+
+.team1 {
+    background: rgba(0,139,0,0.6);
+    border-radius: 10px;
+}
+
+.panel-danger{
+    border-color: rgba(205,0,0,0.6);
+    border-width: 7px;
+}
+
+.text-danger{
+    color: rgba(205,0,0,1);
+}
+
+.team2 {
+    background: rgba(205,0,0,0.6);
+    border-radius: 10px;
+}
+
+.form-control {
+    box-sizing: border-box;
+    margin: 0;
+    width: 90%;
+    color: black;
+    padding: 5px 10px;
+    display: block;
+    margin: 10px 15px;
+}
