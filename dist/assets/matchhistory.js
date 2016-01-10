@@ -3825,7 +3825,7 @@ catch(err) {
 if (runningTests) {
   require("matchhistory/tests/test-helper");
 } else {
-  require("matchhistory/app")["default"].create({"name":"matchhistory","version":"0.0.0+8430b019"});
+  require("matchhistory/app")["default"].create({"name":"matchhistory","version":"0.0.0+c7b268c9"});
 }
 
 /* jshint ignore:end */
