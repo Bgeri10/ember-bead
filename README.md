@@ -103,21 +103,6 @@ Az alkalmazást a Cloud 9 online fejlesztői környezetében készült.
 
 •	test: Teszteseketek tartalmazza
 
-## Tesztelés
-
-A tesztesetek a "test" mappában lévő "create.test.js" fájlban találhatóak.
-Ez demonstrálja, hogy egy felhasználó a regisztráció után:
-
-•	visszanyerhető-e minden adat és ezek megegyeznek-e a regisztrációnál megadottakkal.
-
-•	az adatbázisban bármikor megtalálhatóak és visszanyerhetőek-e a letárolt adatok
-
-•	rossz adatoknál hibát dob-e az oldal
-
-•	jó jelszó megadása esetén enged-e belépni az oldal
-
-•	rossz jelszó megadása esetén hibát jelez-e az oldal
-
 ## Felhasználói dokumentáció
 ### Menü
 •	"Fifa 16 logo" : Ide kattintva a Kezdőlapra navigálunk át.
